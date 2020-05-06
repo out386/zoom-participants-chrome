@@ -1,6 +1,6 @@
 body {
   width: 300px;
-  border: 2px solid gray;
+  border: 2px solid #606060;
   background-color: #2d2d2d;
   margin: 0px;
   padding: 10px;
@@ -42,8 +42,8 @@ div {
   position: relative;
 }
 
-#missing {
-  margin-bottom: 40px;
+#data-missing {
+    margin-bottom: 20px;
 }
 
 .label {

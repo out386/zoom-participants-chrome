@@ -1,15 +1,15 @@
 {
-  "name": "Getting Started Example",
+  "name": "Zoom Attendance",
   "version": "1.0",
-  "description": "Build an Extension!",
+  "description": "Uses the Zoom participants list to get roll numbers for participants",
   "permissions": ["activeTab", "declarativeContent", "storage"],
-  "options_page": "options.html",
+  "options_page": "src/options.html",
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["src/background.js"],
     "persistent": false
   },
   "page_action": {
-    "default_popup": "popup.html",
+    "default_popup": "src/popup/popup.html",
     "default_icon": {
       "16": "images/get_started16.png",
       "32": "images/get_started32.png",
