@@ -3,7 +3,12 @@ chrome.tabs.executeScript({ file: './src/inject.js' });
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (sender.tab && request.names) {
         sendResponse({ resp: "recieved" });
-        showRolls(request.names.split(","))
+
+        const header = document.getElementById('general');
+        chrome.storage.sync.get(['data'], (res) => {
+            showRolls(request.names.split(","), res.data);
+            header.innerText = dataw.data; 
+        });
     } else {
         sendResponse({});
     }
@@ -11,7 +16,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 setupCopy();
 
-function showRolls(names) {
+function showRolls(names, data) {
     const generalDiv = document.getElementById('general');
     const foundDiv = document.getElementById('data-found');
     const missingDiv = document.getElementById('data-missing');
