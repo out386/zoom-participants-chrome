@@ -1,45 +1,60 @@
 body {
-  width: 300px;
-  border: 2px solid #606060;
-  background-color: #2d2d2d;
-  margin: 0px;
-  padding: 10px;
+    width: 300px;
+    border: 2px solid #606060;
+    background-color: #2d2d2d;
+    margin: 0px;
+    padding: 10px;
 }
 
 div {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.3em;
-  color: white;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    color: white;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-.copy {
-  height: 1.5rem;
-  opacity: 0.8;
+#copy-found {
+    right: 15px;
+    position: absolute;
+    height: 1.5rem;
+    width: 1.5rem;
+    opacity: 0.8;
+    padding: 4px;
+    border-radius: 50vh;
+    transform: translateY(-5px);
+    transition: background-color 0.2s;
+}
+
+#copy-found:hover {
+    background-color: #FFFFFF20;
+}
+
+#copy-found:active {
+    background-color: #FFFFFF50;
 }
 
 #general {
-  color: #49abf7;
-  font-size: 2em;
-  text-align: center;
-  padding-left: 10px;
-  padding-top: 20px;
-  padding-right: 10px;
-  padding-bottom: 20px;
-  margin: -10px;
-  margin-bottom: 30px;
-  background-color: #3f3f3f;
+    color: #49abf7;
+    font-size: 2em;
+    text-align: center;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    margin: -10px;
+    margin-bottom: 30px;
+    background-color: #3f3f3f;
 }
 
 .data {
-  border: 2px solid #2c6088;
-  border-radius: 2px;
-  padding: 10px;
-  margin: 5px;
-  max-height: 150px;
-  overflow-y: auto;
-  position: relative;
+    border: 2px solid #2c6088;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    position: relative;
 }
 
 #data-missing {
@@ -47,23 +62,34 @@ div {
 }
 
 .label {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
-  align-items: center;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
 }
 
 .data::-webkit-scrollbar {
-  width: 1em;
+    width: 1em;
 }
 
 .data::-webkit-scrollbar-track {
-  background-color: #202426;
+    background-color: #202426;
 }
 
 .data::-webkit-scrollbar-thumb {
-  background-color: #34383A;
+    background-color: #34383A;
+}
+
+#copy-tooltip {
+    font-size: 0.8rem;
+    position: absolute;
+    visibility: hidden;
+    background-color: #4F4F4F;
+    border-radius: 2px;
+    box-shadow: 1px 1px 4px #1F1F1F;
+    padding: 5px;
+    right: 15px;
+    transform: translateY(-2rem);
+    opacity: 0;
+    transition: opacity 0.2s;
 }

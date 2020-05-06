@@ -9,6 +9,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
 });
 
+setupCopy();
+
 function showRolls(names) {
     const generalDiv = document.getElementById('general');
     const foundDiv = document.getElementById('data-found');
@@ -61,4 +63,43 @@ function getName(item) {
         data.name = item
     }
     return data
+}
+
+function setupCopy() {
+    const copyButton = document.getElementById('copy-found');
+    const tooltip = document.getElementById('copy-tooltip');
+
+    copyButton.onclick = () => {
+        const foundDiv = document.getElementById('data-found');
+
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNode(foundDiv);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        selection.removeRange(range);
+        tooltip.innerText = "Copied!"
+        tooltip.style.visibility = "visible";
+        tooltip.style.opacity = "1";
+    }
+    setupTooltip(copyButton, tooltip);
+}
+
+function setupTooltip(copyButton, tooltip) {
+    let tooltipTimer;
+
+    copyButton.onmouseenter = () => {
+        tooltipTimer = setInterval(() => {
+            tooltip.style.visibility = "visible";
+            tooltip.style.opacity = "1";
+        }, 500);
+    }
+
+    copyButton.onmouseleave = () => {
+        tooltip.style.visibility = "hidden";
+        tooltip.style.opacity = "0";
+        tooltip.innerText = "Copy to clipboard"
+        clearInterval(tooltipTimer);
+    }
 }
