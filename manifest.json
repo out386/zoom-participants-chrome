@@ -3,7 +3,7 @@
   "version": "1.0",
   "description": "Uses the Zoom participants list to get roll numbers for participants",
   "permissions": ["activeTab", "declarativeContent", "storage"],
-  "options_page": "src/options.html",
+  "options_page": "src/options/options.html",
   "background": {
     "scripts": ["src/background.js"],
     "persistent": false

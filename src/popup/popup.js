@@ -4,10 +4,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (sender.tab && request.names) {
         sendResponse({ resp: "recieved" });
 
-        const header = document.getElementById('general');
         chrome.storage.sync.get(['data'], (res) => {
             showRolls(request.names.split(","), res.data);
-            header.innerText = dataw.data; 
         });
     } else {
         sendResponse({});
