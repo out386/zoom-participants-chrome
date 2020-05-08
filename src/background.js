@@ -6,6 +6,11 @@ chrome.runtime.onInstalled.addListener(function () {
           //hostEquals: 'us04web.zoom.us',
           pathContains: 'home'
         },
+      }), new chrome.declarativeContent.PageStateMatcher({
+        pageUrl: {
+          hostEquals: 'us04web.zoom.us',
+          pathContains: 'wc'
+        },
       })],
       actions: [new chrome.declarativeContent.ShowPageAction()]
     }]);
