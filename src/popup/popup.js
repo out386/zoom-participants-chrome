@@ -35,7 +35,7 @@ function showRolls(names, data) {
     });
 
     generalDiv.innerText = `${names.length} names, ${matches.length} found`
-    foundDiv.innerText = `${matches.reduce((acc, n, i) => i > 0 ? `${acc}, ${n.roll}` : n.roll, '')}`;
+    foundDiv.innerText = `${matches.sort((a, b) => a.roll - b.roll).reduce((acc, n, i) => i > 0 ? `${acc}, ${n.roll}` : n.roll, '')}`;
     missingDiv.innerText = `${unmatched.reduce((acc, n, i) => i > 0 ? `${acc}, ${n}` : n, '')}`;
 }
 
